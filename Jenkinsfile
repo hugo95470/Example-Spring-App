@@ -1,9 +1,12 @@
 pipeline {
-    agent {
+    agent none 
+
+    environment {
         DOCKER_HUB_USERNAME = Credentials('DOCKER_HUB_USERNAME')
         DOCKER_HUB_PASSWORD = Credentials('DOCKER_HUB_PASSWORD')
         CURRENT_COMMIT = getCommitHash()
     }
+    
     stages {
         stage('Unit tests') {
             agent {
